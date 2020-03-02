@@ -34,7 +34,7 @@ AKnightsTrial1cCharacter::AKnightsTrial1cCharacter()
 	CameraBoom->SetUsingAbsoluteRotation(true);
 	CameraBoom->bDoCollisionTest = false;
 	CameraBoom->SetRelativeRotation(FRotator(0.0f, -90.0f, 0.0f));
-	
+
 
 	// Create an orthographic camera (no perspective) and attach it to the boom
 	SideViewCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("SideViewCamera"));
@@ -49,12 +49,12 @@ AKnightsTrial1cCharacter::AKnightsTrial1cCharacter()
 	GetCharacterMovement()->bOrientRotationToMovement = false;
 
 	// Configure character movement
-	GetCharacterMovement()->GravityScale = 2.0f;
-	GetCharacterMovement()->AirControl = 0.80f;
-	GetCharacterMovement()->JumpZVelocity = 1000.f;
-	GetCharacterMovement()->GroundFriction = 3.0f;
-	GetCharacterMovement()->MaxWalkSpeed = 600.0f;
-	GetCharacterMovement()->MaxFlySpeed = 600.0f;
+	GetCharacterMovement()->GravityScale = 2.0f; //Default: 2.0f
+	GetCharacterMovement()->AirControl = 0.80f;//Default:0.80f
+	GetCharacterMovement()->JumpZVelocity = 1000.0f;//Default:1000.f
+	GetCharacterMovement()->GroundFriction = 3.0f;//Default:3.0f
+	GetCharacterMovement()->MaxWalkSpeed = 600.0f;//Default:600.0f
+	GetCharacterMovement()->MaxFlySpeed = 600.0f;//Default:600.0f
 
 	// Lock character motion onto the XZ plane, so the character can't move in or out of the screen
 	GetCharacterMovement()->bConstrainToPlane = true;
@@ -97,8 +97,8 @@ void AKnightsTrial1cCharacter::UpdateAnimation()
 void AKnightsTrial1cCharacter::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
-	
-	UpdateCharacter();	
+
+	UpdateCharacter();
 }
 
 
@@ -142,7 +142,7 @@ void AKnightsTrial1cCharacter::UpdateCharacter()
 	UpdateAnimation();
 
 	// Now setup the rotation of the controller based on the direction we are travelling
-	const FVector PlayerVelocity = GetVelocity();	
+	const FVector PlayerVelocity = GetVelocity();
 	float TravelDirection = PlayerVelocity.X;
 	// Set the rotation so that the character faces his direction of travel.
 	if (Controller != nullptr)
