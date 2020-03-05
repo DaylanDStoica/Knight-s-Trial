@@ -157,3 +157,13 @@ void AKnightsTrial1cCharacter::UpdateCharacter()
 		}
 	}
 }
+
+void AKnightsTrial1cCharacter::SwordSlash(float Value, float Direction){
+	//Overhead slash attack with sword
+	//Area of Effect, determined by Directin facing (right, left)
+}
+
+void AKnightsTrial1cCharacter::ProjectileShoot(float Value, float Direction){
+	//shoot projectile
+	//can add aiming later
+}
